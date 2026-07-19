@@ -1,30 +1,17 @@
-import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { navigation } from '../data/navigation.js'
 import { brand } from '../data/content.js'
 
 export default function Header({ onOpenMobileNav, onOpenSearch }) {
-  const [stuck, setStuck] = useState(false)
-  const [topbarHidden, setTopbarHidden] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY
-      setStuck(y > 150)
-      setTopbarHidden(y > 300)
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
   return (
     <header
-      className={`main-header sticky-header sticky-header--normal${stuck ? ' scrolled' : ''}`}
+      className="main-header sticky-header sticky-header--normal scrolled"
       style={{
-        position: stuck ? 'sticky' : 'relative',
+        position: 'sticky',
         top: 0,
-        background: stuck ? 'var(--getizy-white)' : 'transparent',
-        boxShadow: stuck ? '0 4px 30px rgba(0,0,0,.08)' : 'none',
+        zIndex: 100,
+        background: 'var(--getizy-white)',
+        boxShadow: '0 4px 30px rgba(0,0,0,.08)',
       }}
     >
       <div className="main-header__container-fluid container-fluid">
