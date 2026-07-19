@@ -134,7 +134,8 @@ export const testimonials = [
 ]
 
 // The original template repeats a single brand mark across the client strip.
-export const clientLogos = Array.from({ length: 5 }).map(() => asset('resources/brand-1-1.png'))
+const singleSet = Array.from({ length: 6 }).map(() => asset('resources/brand-1-1.png'))
+export const clientLogos = [...singleSet, ...singleSet]
 
 export const projects = [
   { title: 'Business Consult', category: 'Marketing', image: asset('project/project-1-1.png') },

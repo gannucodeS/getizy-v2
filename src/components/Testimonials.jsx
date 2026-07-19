@@ -57,11 +57,13 @@ export default function Testimonials() {
           <div className="client-carousel__inner">
             <div className="container">
               <div className="client-carousel__one">
-                {clientLogos.map((logo, i) => (
-                  <div className="client-carousel__one__item" key={i}>
-                    <img src={logo} alt={`Client logo ${i + 1}`} />
-                  </div>
-                ))}
+                <div className="client-carousel__one__track">
+                  {clientLogos.map((logo, i) => (
+                    <div className="client-carousel__one__item" key={i}>
+                      <img src={logo} alt={`Client logo ${i + 1}`} />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
